@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.125rem;
+    --background: oklch(0.05 0.015 262);
+    --foreground: oklch(0.98 0 0);
+    --card: oklch(0.09 0.025 262);
+    --card-foreground: oklch(0.98 0 0);
+    --popover: oklch(0.09 0.025 262);
+    --popover-foreground: oklch(0.98 0 0);
+    --primary: oklch(0.62 0.21 255);
+    --primary-foreground: oklch(0.98 0 0);
+    --secondary: oklch(0.13 0.04 262);
+    --secondary-foreground: oklch(0.98 0 0);
+    --muted: oklch(0.11 0.03 262);
+    --muted-foreground: oklch(0.72 0.03 250);
+    --accent: oklch(0.78 0.13 245);
+    --accent-foreground: oklch(0.06 0.015 262);
+    --destructive: oklch(0.6 0.2 27);
+    --destructive-foreground: oklch(0.98 0 0);
+    --border: oklch(0.62 0.14 255 / 18%);
+    --input: oklch(0.62 0.14 255 / 22%);
+    --ring: oklch(0.62 0.21 255);
+    --silver: oklch(0.88 0.05 250);
+    --ripple-line: oklch(0.65 0.25 27);
+    --glow-blue: 0 0 28px color-mix(in oklab, var(--primary) 65%, transparent);
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .carbon {
+    background-color: oklch(0.05 0.02 262);
+    background-image:
+      linear-gradient(45deg, oklch(0.1 0.035 262) 25%, transparent 25%, transparent 75%, oklch(0.1 0.035 262) 75%),
+      linear-gradient(45deg, oklch(0.1 0.035 262) 25%, transparent 25%, transparent 75%, oklch(0.1 0.035 262) 75%),
+      linear-gradient(to bottom, oklch(0.62 0.21 255 / 4%), transparent 50%);
+    background-size: 8px 8px, 8px 8px, 100% 4px;
+    background-position: 0 0, 4px 4px, 0 0;
+  }
+
+  .text-chrome {
+    background: linear-gradient(180deg, var(--foreground) 25%, oklch(0.85 0.06 250) 55%, oklch(0.62 0.14 255));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-blue {
+    box-shadow: var(--glow-blue);
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .animate-fade-in { animation: fade-in 0.4s ease-out; }
+}
